@@ -1,0 +1,13 @@
+birth_year=[]
+z=0
+for y in raw_df.age:
+    x=y.strip('years')
+    if '+' in x:
+        birth_year.append(str(raw_df.loc[z, 'year']-75) + '+')
+    else:
+        mid=x.find('-')
+        start=int(x[:mid])
+        end=int(x[mid+1:])
+        birth_year.append(str(raw_df.loc[z, 'year']-end)+'-'+str(raw_df.loc[z, 'year']-start))
+    z+=1
+print(birth_year)
